@@ -1,3 +1,7 @@
+// index.js 상단에 추가
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
+
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
