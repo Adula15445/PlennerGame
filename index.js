@@ -1,7 +1,3 @@
-// index.js 상단에 추가
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
-
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -12,6 +8,10 @@ const app = express();
 // 미들웨어 설정
 app.use(cors());
 app.use(express.json());
+
+// index.js 상단에 추가
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 // DB 연결
 mongoose.connect(process.env.DB_URL)
