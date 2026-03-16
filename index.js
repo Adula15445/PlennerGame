@@ -2,12 +2,14 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const calendarRouter = require('./routes/calendar');
 
 const app = express();
 
 // 미들웨어 설정
 app.use(cors());
 app.use(express.json());
+app.use('/calendar', calendarRouter);
 
 
 const authRoutes = require('./routes/auth');
