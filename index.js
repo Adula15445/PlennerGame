@@ -9,9 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// index.js 상단에 추가
+
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+
+const weatherRoutes = require('./routes/weather');
+app.use('/weather', weatherRoutes);
 
 // DB 연결
 mongoose.connect(process.env.DB_URL)
