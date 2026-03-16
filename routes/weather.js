@@ -4,7 +4,7 @@ const axios = require('axios'); // npm install axios 필요
 
 router.get('/', async (req, res) => {
     const { lat, lon } = req.query;
-    const apiKey = process.env.WEATHER_API_KEY; // .env에 저장된 키
+    const apiKey = process.env.WEATHER_API_KEY ? process.env.WEATHER_API_KEY.trim() : null;
 
     try {
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
