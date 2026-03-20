@@ -1,12 +1,23 @@
 const mongoose = require('mongoose');
 
 const StampSchema = new mongoose.Schema({
-    // 어떤 유저의 도장 리스트인지 식별 (Calendar 모델과 동일한 방식)
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
+    // 유저 식별자 (User 모델 참조)
+    userId: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User', 
+        required: true, 
+        unique: true 
+    },
     
-    // 도장 데이터들을 담는 배열
-    // 유니티에서 보낸 List<WorkStampData>가 JSON 배열 형태로 여기에 저장됩니다.
-    savedStamps: [Object] 
+    // 도장 데이터 리스트
+    // 유니티의 List<WorkStampData> 구조를 통째로 담기 위해 Array 타입으로 정의
+    savedStamps: { 
+        type: Array, 
+        default: [] 
+    }
+}, { 
+    // createdAt, updatedAt 자동 생성 (디버깅 및 관리용)
+    timestamps: true 
 });
 
 module.exports = mongoose.model('Stamp', StampSchema);
