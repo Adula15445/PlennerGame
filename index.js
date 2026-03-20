@@ -19,6 +19,8 @@ app.use('/auth', authRoutes);
 const weatherRoutes = require('./routes/weather');
 app.use('/weather', weatherRoutes);
 
+const stampsRouter = require('./routes/stamps');
+app.use('/stamps', stampsRouter);
 // DB 연결
 mongoose.connect(process.env.DB_URL)
     .then(() => console.log('MongoDB 연결 성공'))
