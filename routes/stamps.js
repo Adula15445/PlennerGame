@@ -9,7 +9,7 @@ const authenticateToken = require('../middleware/authMiddleware');
  */
 router.post('/sync', authenticateToken, async (req, res) => {
     try {
-        const userId = userId = req.user.userId;// 토큰에서 추출한 유저 ID
+        const userId = req.user.userId;// 토큰에서 추출한 유저 ID
         
         // 유니티에서 보낸 JSON 데이터 추출
         // req.body.savedStamps가 없을 경우를 대비해 빈 배열([])을 기본값으로 할당
