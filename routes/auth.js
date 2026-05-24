@@ -43,7 +43,7 @@ router.post('/login', async (req, res) => {
         
         if (user && await bcrypt.compare(password, user.password)) {
             const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
-            res.json({ token });
+            res.json({ token, username: user.username });
         } else {
             res.status(401).json({ error: "로그인 실패" });
         }
