@@ -5,7 +5,7 @@ const auth = require('../middleware/authMiddleware');
 // GET /dialogue/check?key=user123_Doctor_First_Meet
 router.get('/check', auth, async (req, res) => {
     const { key } = req.query;
-    const userId = req.user.id;
+    const userId = req.user.userId;
 
     try {
         const User = require('../models/User');
