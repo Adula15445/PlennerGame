@@ -21,7 +21,7 @@ router.get('/check', auth, async (req, res) => {
 // POST /dialogue/complete
 router.post('/complete', auth, async (req, res) => {
     const { eventKey, isCompleted } = req.body;
-    const userId = req.user.id;
+   const userId = req.user.userId;
 
     try {
         const User = require('../models/User');
