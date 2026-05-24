@@ -15,6 +15,9 @@ app.use('/calendar', calendarRouter);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+// 기존 코드 아래에 추가 (23번 줄 근처)
+const dialogueRouter = require('./routes/dialogue');
+app.use('/dialogue', dialogueRouter);
 
 const weatherRoutes = require('./routes/weather');
 app.use('/weather', weatherRoutes);

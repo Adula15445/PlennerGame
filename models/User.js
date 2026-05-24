@@ -4,6 +4,8 @@ const userSchema = new mongoose.Schema({
     // 기존 필드
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    // 기존 User 스키마에 이 필드 하나만 추가
+    completedDialogues: [String],
 
     // 구글 로그인을 위한 추가 필드
     // unique: true를 주되, 일반 유저의 null 값끼리 충돌하지 않게 sparse 옵션을 넣습니다.
